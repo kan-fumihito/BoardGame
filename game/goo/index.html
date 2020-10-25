@@ -1,0 +1,24 @@
+
+<html>
+    <head>
+        <!-- Reactのコアライブラリ -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+        <!-- ReactDOMライブラリ -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            window.RufflePlayer = window.RufflePlayer || {};
+            
+            window.addEventListener("DOMContentLoaded", () => {
+                let ruffle = window.RufflePlayer.newest();
+                let player = ruffle.create_player();
+                let container = document.getElementById("container");
+                container.appendChild(player);
+                player.stream_swf_url("AC/002.swf");
+            });
+        </script>
+        <script type="text/babel" src="../gamejs/ruffle.js"></script>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../../../font/HuiFont29.ttf') format('truetype');
+}
+html,
+body {
+    background-image: url("../image/table.jpg");
+    height: 100%; 
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+}
+
+header {
+    background-color: rgba(255,165,0,0.3);
+    height: 50px;
+}
+
+.left {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+
+.center {
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    float: left;
+}
+.right {
+    width: 35%;
+    height: 100%;
+    min-height: 100%;
+    vertical-align: middle;
+    float: left;
+}
+
+.board {
+    position: relative;
+    margin: auto;
+    border-radius: 70px;
+    width: 90%;
+    height: 0;
+    padding-top: calc(1000 / 1000 * 90%);
+    background: url("../image/board.png") center center / cover no-repeat;
+}
+
+table {
+    position: relative;
+}
+.table_line {
+    position: absolute;
+    display: table;
+    width: 100%;
+    height: 33.333%;
+}
+.square {
+    position: absolute;
+    display: table-cell;
+    margin: auto;
+    width: 33%;
+    height: 100%;
+}
+.pieceimg {
+    width: 100%;
+    height: 100%;
+}
+.sel input[type="radio"] {
+    display: none;
+}
+.sel td {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    table-layout: fixed;
+    padding: 1px 1px 1px 1px;
+    font-size: 33px;
+}
+
+.btn-default {
+    width: 100px;
+    height: 60px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+footer {
+    
+    background-color: rgba(10,250,240,0.5);
+    text-align: center;
+    height: 70px;
+    bottom: 0;
+}
+

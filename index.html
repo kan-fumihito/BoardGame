@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta http-equiv="content-type" charset="utf-8">
+    <title>ボードゲーム</title>
+    <style type="text/css">
+        @font-face {
+            font-family: 'MyFont';
+            src: url('./font/HuiFont29.ttf') format('truetype');
+        }
+
+        body {
+            background-image: url('image/back.jpg');
+            background-attachment: fixed;
+            /* display: flex; */
+            background-size: cover;
+        }
+
+        .pagetitle {
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'MyFont', sans-serif;
+            font-size: 100px;
+        }
+
+        .game-content {
+            background-color: rgba(200,255,255,0.7);
+            margin: 5% auto;
+            align-content: center;
+            width: fit-content;
+            padding: 50px;
+        }
+
+        .game-img {
+            width: 300px;
+            height: 200px;
+            box-shadow: 1px 1px 4px 4px gray;
+        }
+
+        html,
+        body {
+            height: 100%;
+            min-height: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/hover.css" media="all">
+    <link rel="stylesheet" href="css/magic.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div>
+        <header class="pagetitle">
+            <p class='title'>ボードゲーム</p>
+        </header>
+    </div>
+    <div class="game-content text-center">
+        <div class="row">
+            <div class="col">
+                <a href="game/gob" class="hvr-bob"><img class="game-img" src="image/gob.png"><h3>三目並べ</h3></a>
+            </div>
+            <div class="col">
+                <a href="game/block" class="hvr-bob"><img class="game-img" src="image/block.png"><h3>ブロック崩し</h3></a>
+            </div>
+            <div class="col">
+                <img class="game-img swashIn" src="image/comming-soon.jpg"><h3>?????????</h3>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <img class="game-img" src="image/comming-soon.jpg"><h3>四目並べ</h3>
+            </div>
+            <div class="col">
+                <img class="game-img" src="image/comming-soon.jpg"><h3>ブロック崩し対戦</h3>
+            </div>
+            <dic class="col">
+                <img class="game-img" src="image/comming-soon.jpg"><h3>ガイスター</h3>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h2 class="text-center" style="font-family: 'MyFont', sans-serif;"><a href="https://twitter.com/kanf1204">Twitter: @kanf1204</a></h3>
+   
+</body>
+
+</html>

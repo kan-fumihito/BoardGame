@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" charset="utf-8">
+<html>
+<head>
+    <title>JavaScriptでオセロゲームを作る</title>
+    
+    <!-- script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/gob.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+
+<body id="playtable">
+    
+    <div class="wrapper">
+        <header style="height: 60px;">
+            <a href="http://www.kanf1204.tk">トップに戻る</a>
+        </header>
+    <div class="left">
+        <p></p>
+    </div>
+
+    <div class="center">
+        <!-- 盤面 -->
+        <p><h3 id="message" align="center" class="text-center">開始ボタンを押してください</h3></p>
+        
+        <div class="board">
+            <div class="table_line" style="top: 0%;">
+                <div class="square" style="left: 0%;" onclick="board_click(0,0)"><img id="00" class="pieceimg" src="image/None.png"></div>
+                <div class="square" style="left: 33.333%;" onclick="board_click(0,1)"><img id="01" class="pieceimg" src="image/None.png"></div>
+                <div class="square" style="left: 66.666%;" onclick="board_click(0,2)"><img id="02" class="pieceimg" src="image/None.png"></div>
+            </div>
+            <div class="table_line" style="top: 33.333%">
+                <div class="square" style="left: 0%;" onclick="board_click(1,0)"><img id="10" class="pieceimg" src="image/None.png"></div>
+                <div class="square" style="left: 33.333%;" onclick="board_click(1,1)"><img id="11" class="pieceimg" src="image/None.png"></div>
+                <div class="square" style="left: 66.666%;" onclick="board_click(1,2)"><img id="12" class="pieceimg" src="image/None.png"></div>
+            </div>
+            <div class="table_line" style="top: 66.666%;">
+                <div class="square" style="left: 0%;" onclick="board_click(2,0)"><img id="20" class="pieceimg" src="image/None.png"></div>
+                <div class="square" style="left: 33.333%;" onclick="board_click(2,1)"><img id="21" class="pieceimg" src="image/None.png"></div>
+                <div class="square" style="left: 66.666%;" onclick="board_click(2,2)"><img id="22" class="pieceimg" src="image/None.png"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="right">
+        <table align="center" class="sel">
+        <tr>
+            <td>
+            <label for="ops">
+                <img id="OPS" src="image/None.png" width="100%" height="100%">
+            </label>
+            </td>
+            <td>
+            <label for="opm">
+                <img id="OPM" src="image/None.png" width="100%" height="100%">
+            </label>
+            </td>
+            <td>
+            <label for="opl">
+                <img id="OPL" src="image/None.png" width="100%" height="100%">
+            </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label id="ops_l" for="ops"></label>
+            </td>
+            <td>
+            <label id="opm_l" for="opm"></label>
+            </td>
+            <td>
+            <label id="opl_l" for="opl"></label>
+            </td>
+        </tr>
+        </table>
+        <!-- 選択コマ表示 -->
+        <h2 style="text-align: center" id="ptype" >_</h2>
+
+        <table align="center" class="sel">
+            <tr>
+                <td>
+                    <input type="radio" name="piece" id="ps" value="1" onclick="radioDeselection(this, 1)">
+                    <label for="ps">
+                        <img src="image/None.png" id="MyPS" width="100%" height="100%">
+                    </label>
+                </td>
+                <td>
+                    <input type="radio" name="piece" id="pm" value="2" onclick="radioDeselection(this, 2)">
+                    <label for="pm">
+                        <img src="image/None.png" id="MyPM" width="100%" height="100%">
+                    </label>
+                </td>
+                <td>
+                    <input type="radio" name="piece" id="pl" value="3" onclick="radioDeselection(this, 3)">
+                    <label for="pl">
+                        <img src="image/None.png" id="MyPL" width="100%" height="100%">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label id="ps_l" for="ps"></label>
+                </td>
+                <td>    
+                    <label id="pm_l" for="pm"></label>
+                </td>
+                <td>
+                    <label id="pl_l" for="pl"></label>
+                </td>
+            </tr>
+        </table>
+        <div style="text-align: center; float: left; width: 100%;">
+            
+            <button id="start_btn" class="btn btn-primary btn-default" onclick="start()">開始</button>
+            <!--input id="start_button" type="button" value="開始" onclick="start()"-->
+            
+            <button id="surrender_btn" class="btn btn-primary btn-default" onclick="surrender()">降参</button>
+            <!--input id="surrender_button" type="button" value="降参" onclick="surrender()"-->
+                    
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/stack.js"></script>
+    <script type="text/javascript" src="js/func.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    </div>
+    <footer>
+        <h2 style="font-family: 'MyFont', sans-serif;"><a href="https://twitter.com/kanf1204">Twitter: @kanf1204</a></h2>
+    </footer>
+    
+</body>
+
+</html>
