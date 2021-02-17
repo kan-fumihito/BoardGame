@@ -47,7 +47,7 @@ def message_recv(client, server, message):# receive movement
         
 
 def main():
-    IP_ADDR = "192.168.0.4"
+    IP_ADDR = "18.178.157.193"
     PORT = 5775
     server = WebsocketServer(PORT, host=IP_ADDR)
     server.set_fn_new_client(new_client)
