@@ -4,7 +4,7 @@ var first_flag = true
 // connection start
 function start() {
     message.innerHTML = "対戦相手を探しています..."
-    connection = new WebSocket('ws://www.game-app.work:5775')
+    connection = new WebSocket('ws://board.game-app.work:5775')
     document.getElementById("start_btn").disabled = true
     connection.onopen = function(e) {
         first_flag = true
