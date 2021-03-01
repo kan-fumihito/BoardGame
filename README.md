@@ -1,2 +1,2 @@
 # BoardGame
-gomi
+WebSocketで1対1のオンラインゲームを実装
